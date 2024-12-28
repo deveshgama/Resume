@@ -11,7 +11,7 @@
         <h1>Devesh Pratap Singh</h1>
         <p>Email: deveshsingh1994123@gmail.com | deveshpratapsingh2005@gmail.com</p>
         <p>Phone: +91 8604591229</p>
-        <p>Location: Lucknow, Uttar Pradesh, India</p>
+        <p>Location: Lucknow, Uttar Pradesh, India | 226002</p>
     </header>
     
     <nav>
@@ -21,21 +21,26 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
+            <button onclick="toggleChat()">Chat with me</button>
         </ul>
     </nav>
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Brief introduction about yourself, your background, and your career goals.</p>
+        <p>My name is Devesh Pratap Singh, I am a pre-final year Engineering Student.
+             I am currently living in Lucknow with my parents and younger brother.
+              Aspiring to become a Python Developer with proficeincy in major languages and database softwares.
+               I am currently seeking a challenging Internship to improve better understanding of industry norms and requirenments.
+            I belive that 'Change is the only constant in life' abiding by this I am trying to be a better person than yesterday.</p>
     </section>
 
     <section id="experience">
         <h2>Experience</h2>
         <ul>
             <li>
-                <h3>Job Title - Python Intern</h3>
-                <p>Starting December 2024  </p>
-                <p>VRV Security</p>
+                <h3>Fresher</h3>
+                <p></p>
+                <p></p>
             </li>
         </ul>
     </section>
@@ -67,16 +72,31 @@
     <section id="skills">
         <h2>Skills</h2>
         <ul>
-            <li>Skill 1</li>
-            <li>Skill 2</li>
-            <li>Skill 3</li>
-            <li>Skill 4</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>CSS</li>
+            <li>HTML</li>
+            <li>Django</li>
+            <li>Flask</li>
+            <li>MySQL</li>
+            <li>Nodejs</li>
+            <li>Expressjs</li>
+            <li>C Programming</li>
+            <li>C++</li>
+            <li>Docker</li>
+            <li>MS Office</li>
+            <li>Excel</li>
+            <li>Machine Learning</li>
+            <li>Deep Learning</li>
+            <li>PHP</li>
+            <li></li>
         </ul>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>If you would like to get in touch, please reach out via email or phone.<br><br>
+        <p>If you would like to get in touch, please reach out via email or phone.<br>
             Email: deveshsingh1994123@gmail.com | deveshpratapsingh2005@gmail.com <br>
             Phone: +91 8604591229
         </p>
@@ -85,5 +105,15 @@
     <footer>
         <p>&copy; Devesh Pratap Singh</p>
     </footer>
+    <div id="chat-box" class="chat-box">
+        <div class="chat-header">
+            <h3>Chat</h3>
+            <button id="close-chat" onclick="toggleChat()">X</button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Type a message..." />
+        <div><br></div>
+    </div>
+    <script src="chat.js"></script>
 </body>
 </html>
