@@ -1,0 +1,30 @@
+/* Basic styles for the game */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e0e0e0;
+}
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+}
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    background-color: white;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+.cell:hover {
+    background-color: #e0e0e0; /* Change background on hover */
+    transform: scale(1.05); /* Slightly enlarge the cell */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}

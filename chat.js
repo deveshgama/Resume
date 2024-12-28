@@ -13,7 +13,11 @@ function generateResponse(userMessage) {
         return 'Hi there! How can I help you today?';
     } else if (userMessage.includes('help')) {
         return 'Sure! What do you need help with?';
-    } else {
+    } 
+    else if(userMessage.includes('hi')){
+        return 'Hello there! How Can I help you today?'
+    }
+    else {
         return 'I\'m not sure how to respond to that. Can you ask something else?';
     }
 }
