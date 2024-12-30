@@ -48,3 +48,9 @@ document.getElementById('chat-input').addEventListener('keypress', function(even
         event.preventDefault(); // Prevent the default action (e.g., form submission)
     }
 });
+document.addEventListener('keydown', function(event) {
+    const chatBox = document.getElementById('chat-box');
+    if (event.key === 'Escape' && chatBox.style.display === 'block') {
+        toggleChat(); // Call the function to toggle chat visibility only if it's open
+    }
+});
