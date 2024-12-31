@@ -60,20 +60,74 @@ function handleCellClick(event) {
 function computerMove() {
     if (!gameActive) return;
 
-    const emptyCells = gameState.map((cell, index) => cell === '' ? index : null).filter(index => index !== null);
+    // Find the best move using the Minimax algorithm
+    const bestMove = getBestMove(gameState, 'O');
+    gameState[bestMove] = 'O';
+    cells[bestMove].textContent = 'O';
 
-    if (emptyCells.length > 0) {
-        const randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-        gameState[randomIndex] = currentPlayer;
-        cells[randomIndex].textContent = currentPlayer;
+    checkForWinner();
 
-        checkForWinner();
+    if (gameActive) {
+        currentPlayer = 'X';
+        statusText.textContent = `Player ${currentPlayer}'s turn`;
+    }
+}
 
-        if (gameActive) {
-            currentPlayer = 'X';
-            statusText.textContent = `Player ${currentPlayer}'s turn`;
+function getBestMove(board, player) {
+    const availableMoves = board.map((cell, index) => cell === '' ? index : null).filter(index => index !== null);
+
+    // Check for a winning move
+    for (let move of availableMoves) {
+        const newBoard = [...board];
+        newBoard[move] = player;
+        if (checkWin(newBoard, player)) {
+            return move;
         }
     }
+
+    // Check if the opponent can win in the next move and block them
+    const opponent = player === 'O' ? 'X' : 'O';
+    for (let move of availableMoves) {
+        const newBoard = [...board];
+        newBoard[move] = opponent;
+        if (checkWin(newBoard, opponent)) {
+            return move;
+        }
+    }
+
+    // Try to take the center if available
+    if (board[4] === '') {
+        return 4;
+    }
+
+    // Try to take a corner if available
+    const corners = [0, 2, 6, 8];
+    const availableCorners = corners.filter(corner => board[corner] === '');
+    if (availableCorners.length > 0) {
+        return availableCorners[Math.floor(Math.random() * availableCorners.length)];
+    }
+
+    // Take any available edge
+    const edges = [1, 3, 5, 7];
+    const availableEdges = edges.filter(edge => board[edge] === '');
+    if (availableEdges.length > 0) {
+        return availableEdges[Math.floor(Math.random() * availableEdges.length)];
+    }
+
+    // If no moves are left (shouldn't happen in Tic-Tac-Toe)
+    return -1;
+}
+
+function checkWin(board, player) {
+    const winningCombinations = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]             // Diagonals
+    ];
+
+    return winningCombinations.some(combination => 
+        combination.every(index => board[index] === player)
+    );
 }
 
 function checkForWinner() {
