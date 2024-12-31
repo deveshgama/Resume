@@ -1,16 +1,41 @@
-/* Basic styles for the game */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #e0e0e0;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+.container {
+    text-align: center;
+}
+.mode-selector {
+    margin-bottom: 20px;
+}
+.mode-selector button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.mode-selector button:hover {
+    background-color: #555;
 }
 .board {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 5px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .cell {
     width: 100px;
@@ -19,12 +44,40 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 2em;
-    background-color: white;
-    border: 1px solid #000;
+    font-weight: bold;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 .cell:hover {
-    background-color: #e0e0e0; /* Change background on hover */
-    transform: scale(1.05); /* Slightly enlarge the cell */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+.cell.winner {
+    background-color: #aaffaa; /* Light green for winning cells */
+}
+.status {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+.reset-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+    background-color: #555;
 }
