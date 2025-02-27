@@ -1,0 +1,85 @@
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333; /* Dark text color */
+}
+
+/* Header styles */
+header {
+    background-color: grey; /* Bootstrap primary color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.search-container {
+    margin-top: 10px;
+}
+
+#Location {
+    padding: 10px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+}
+
+#search-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: grey; /* Darker blue */
+    color: white;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: #004494; /* Even darker blue on hover */
+}
+
+/* Main section styles */
+main {
+    padding: 20px;
+}
+
+/* Current weather section styles */
+#current-weather {
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#current-weather h2 {
+    color: grey; /* Match header color */
+}
+
+/* Forecast section styles */
+#forecast {
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#forecast h2 {
+    color: grey; /* Match header color */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: grey; /* Match header color */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

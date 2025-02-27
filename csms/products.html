@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Management - Crappy Cloth Store</title>
+  <link rel="stylesheet" href="products.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Crappy Cloth Store Product Management</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="product-management">
+      <h2>Manage Your Products</h2>
+      <div class="product-actions">
+        <button id="viewProductsBtn">View Products</button>
+        <button id="addProductBtn">Add Product</button>
+        <button id="editProductBtn">Edit Product</button>
+        <button id="deleteProductBtn">Delete Product</button>
+      </div>
+      
+      <!-- Product Table -->
+      <div id="productTableContainer" class="hidden">
+        <h3>Product List</h3>
+        <table id="productTable">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Size</th>
+              <th>Brand</th>
+              <th>Cost Price</th>
+              <th>Selling Price</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Product rows will be dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Add/Edit Product Form -->
+      <div id="productFormContainer" class="hidden">
+        <h3 id="formTitle">Add/Edit Product</h3>
+        <form id="productForm">
+          <label for="productId">Product ID:</label>
+          <input type="number" id="productId" required>
+
+          <label for="productName">Name:</label>
+          <input type="text" id="productName" required>
+
+          <label for="productType">Type:</label>
+          <input type="text" id="productType" required>
+
+          <label for="productSize">Size:</label>
+          <input type="text" id="productSize" required>
+
+          <label for="productBrand">Brand:</label>
+          <input type="text" id="productBrand" required>
+
+          <label for="productCostPrice">Cost Price:</label>
+          <input type="number" id="productCostPrice" required>
+
+          <label for="productSellingPrice">Selling Price:</label>
+          <input type="number" id="productSellingPrice" required>
+
+          <label for="productQuantity">Quantity:</label>
+          <input type="number" id="productQuantity" required>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>&copy; 2025 Crappy Cloth Store. All Rights Reserved.</p>
+  </footer>
+  <script src="products.js"></script>
+</body>
+</html>

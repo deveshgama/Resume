@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circle Game</title>
+  <link rel="stylesheet" href="popcircles.css">
+</head>
+<body>
+  <div class="score">Score: <span id="score">0</span></div>
+  <div class="timer">Time: <span id="timer">30</span>s</div>
+  <div class="controls">
+    <select id="timeSelect">
+      <option value="5">5 seconds</option>
+      <option value="10">10 seconds</option>
+      <option value="30" selected>30 seconds</option>
+      <option value="60">60 seconds</option>
+      <option value="90">90 seconds</option>
+      <option value="120">120 seconds</option>
+    </select>
+    <button id="startButton">Start Game</button>
+  </div>
+  <canvas id="gameCanvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const startButton = document.getElementById('startButton');
+    const timeSelect = document.getElementById('timeSelect');
+    const scoreDisplay = document.getElementById('score');
+    const timerDisplay = document.getElementById('timer');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let score = 0;
+    let timeLeft = 30;
+    let timerInterval = null;
+    let currentCircle = null;
+    let isGameRunning = false;
+
+    class Circle {
+      constructor(x, y, radius, color) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+
+    function spawnCircle() {
+      if (currentCircle === null) {
+        const radius = Math.random() * 30 + 20;
+        const x = Math.random() * (canvas.width - radius * 2) + radius;
+        const y = Math.random() * (canvas.height - radius * 2) + radius;
+        const color = `hsl(${Math.random() * 360}, 50%, 50%)`;
+        currentCircle = new Circle(x, y, radius, color);
+        currentCircle.draw();
+      }
+    }
+
+    function startGame() {
+      if (isGameRunning) return;
+      isGameRunning = true;
+      score = 0;
+      timeLeft = parseInt(timeSelect.value, 10);
+      scoreDisplay.textContent = score;
+      timerDisplay.textContent = timeLeft;
+      currentCircle = null;
+      document.querySelector('.controls').style.display = 'none';
+      canvas.style.display = 'block';
+
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          alert(`Time's up! Your score: ${score}`);
+          resetGame();
+        }
+      }, 1000);
+
+      animate();
+    }
+
+    function resetGame() {
+      isGameRunning = false;
+      clearInterval(timerInterval);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      currentCircle = null;
+      document.querySelector('.controls').style.display = 'block';
+      canvas.style.display = 'none';
+    }
+
+    canvas.addEventListener('click', (event) => {
+      if (!isGameRunning) return;
+      const clickX = event.clientX;
+      const clickY = event.clientY;
+
+      if (currentCircle) {
+        const distance = Math.hypot(clickX - currentCircle.x, clickY - currentCircle.y);
+
+        if (distance < currentCircle.radius) {
+          currentCircle = null;
+          score++;
+          scoreDisplay.textContent = score;
+        }
+      }
+    });
+
+    function animate() {
+      if (!isGameRunning) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (currentCircle) {
+        currentCircle.draw();
+      } else {
+        spawnCircle();
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && isGameRunning) {
+        resetGame();
+      }
+    });
+
+    startButton.addEventListener('click', startGame);
+  </script>
+</body>
+</html>
