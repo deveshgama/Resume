@@ -1,0 +1,124 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header h1 {
+    margin: 0;
+  }
+  
+  .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+  }
+  
+  .nav-links li {
+    display: inline;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Main Section */
+  .product-management {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .product-actions {
+    margin: 20px 0;
+  }
+  
+  .product-actions button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .product-actions button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Product Table */
+  #productTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  #productTable th, #productTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  #productTable th {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  /* Form Styles */
+  #productFormContainer {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  #productForm label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  #productForm input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #productForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #productForm button:hover {
+    background-color: #218838;
+  }
+  
+  /* Hidden Element */
+  .hidden {
+    display: none;
+  }
+  
