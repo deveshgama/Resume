@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Crappy Cloth Store</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <h1>Crappy cloth store Login</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="signup.html">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Authentiaction</h2>
+        <form id="loginForm">
+            <label for="userId">User ID :</label>
+            <input type="text" id="userId" name="userId" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+    <div class="status">Please fill all the fields !</div>
+    <script src="login.js"></script>
+    <footer>
+        <p>&copy; 2025 Crappy Cloth Store. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

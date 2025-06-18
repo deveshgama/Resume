@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: lightblue;
+}
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    background-color: black;
+    animation: move 5s infinite alternate;
+}
+@keyframes move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(100vw, 100vh); }
+}
